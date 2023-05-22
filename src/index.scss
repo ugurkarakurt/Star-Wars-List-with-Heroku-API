@@ -1,0 +1,109 @@
+@import "reset";
+@import "animation";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html,
+body {
+  height: 100%;
+
+  html {
+    scrollbar-color: #252B42 transparent;
+  }
+
+  html {
+    --scrollbarBG: #252B42;
+    --thumbBG: transparent;
+  }
+
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+}
+
+#root {
+  background-color: #252B42;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .App {
+    width: 1000px;
+    border: 1px solid #000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    padding: 30px;
+    color: #B1B9D8;
+
+    main {
+      flex: 1 1;
+      padding: 50px;
+      padding-top: 10px;
+
+      &.grid-2 {
+
+        .character-list,
+        .homeworld-list {
+          grid-template-columns: repeat(2, 1fr);
+
+          .name {
+            font-size: 26px;
+          }
+
+          .informations {
+            span {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+
+      &.grid-4 {
+
+        .character-list,
+        .homeworld-list {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .home {
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1A2036;
+        border-radius: 20px;
+      }
+    }
+  }
+}

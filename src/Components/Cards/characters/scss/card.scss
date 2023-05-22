@@ -1,0 +1,186 @@
+.character-list {
+  display: grid;
+  gap: 20px;
+  min-height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+
+  &.loading {
+    grid-template-columns: repeat(1, 1fr) !important;
+
+    .loading-icon-wrapper {
+      display: flex;
+    }
+  }
+
+  .loading-icon-wrapper {
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+
+    .loading-icon {
+      width: 60px;
+      height: auto;
+      display: inline-block;
+      -webkit-animation-name: loading;
+      -webkit-animation-duration: 2s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: loading;
+      -moz-animation-duration: 2s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+      -ms-animation-name: loading;
+      -ms-animation-duration: 2s;
+      -ms-animation-iteration-count: infinite;
+      -ms-animation-timing-function: linear;
+
+      animation-name: loading;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(.43, .84, .61, .14);
+
+
+
+      -webkit-animation-delay: 0.3s;
+      -moz-animation-delay: 0.3s;
+      -ms-animation-delay: 0.3s;
+      animation-delay: 0.3s;
+      transform-origin: 50% 49.2%;
+    }
+  }
+
+
+
+  .card-wrapper {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    padding: 1px;
+    border-radius: 20px;
+
+    &:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23) !important;
+
+      &::before {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .card {
+        &-header {
+          button {
+            opacity: 1;
+          }
+        }
+      }
+
+    }
+
+    &::before {
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0.25s linear, opacity 0.25s linear;
+    }
+
+  }
+
+  .card {
+    height: 200px;
+    background-color: #1A2036;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+
+    &-header {
+      width: 100%;
+      height: 40px;
+
+      .card-actions {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: transparent;
+          width: 20px;
+          height: 20px;
+          padding: 0;
+          border: none;
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(301deg) brightness(107%) contrast(102%);
+          transition: .2s;
+          opacity: .5;
+
+          &.edit-button {
+            &:hover {
+              opacity: 1;
+              filter: invert(89%) sepia(89%) saturate(2292%) hue-rotate(327deg) brightness(90%) contrast(92%);
+            }
+          }
+
+          &.add-button {
+            &:hover {
+              filter: invert(76%) sepia(68%) saturate(2002%) hue-rotate(117deg) brightness(100%) contrast(93%);
+            }
+          }
+
+          &.delete-button {
+            &:hover {
+              opacity: .8;
+              filter: invert(16%) sepia(59%) saturate(4439%) hue-rotate(347deg) brightness(106%) contrast(104%);
+            }
+          }
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+
+        }
+      }
+    }
+
+    &-body {
+      flex: 1 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .name {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: #8f66ff80;
+        user-select: none;
+      }
+
+      .informations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        user-select: none;
+
+        span {
+          font-size: 14px;
+          border-radius: 5px;
+          padding: 5px;
+          color: #dec23598;
+          background-color: #252B42;
+          transition: .2s ease;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
